@@ -18,6 +18,6 @@ class TemperatureStore
   end
 
   def self.key
-    @clock.now.strftime('%H%M')
+    @clock.now.strftime('%y%m%d%H%M')
   end
 end

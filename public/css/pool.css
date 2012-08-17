@@ -1,0 +1,120 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+  body, html {
+    widht: 100%; height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0; padding: 0;
+  }
+  
+  div#container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+
+    background-size: 100%;
+    background-position: center center;
+    background-image: url(../img/rotate.png);
+    background-repeat: no-repeat;
+  }
+
+  div#bottom, div#top {
+    display: none;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+  
+  body, html {
+    widht: 100%; height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0; padding: 0;
+  }
+
+  div#bottom {
+    height: 100%; width: 100%;
+    position: absolute;
+    bottom: -120px;
+
+    background-size: 100%;
+    background-position: center bottom;
+    background-image: url(../img/bottom.png);
+    background-repeat: no-repeat;
+  }
+
+  div#top {
+    height: 100%; width: 100%;
+    position: absolute;
+
+    background-size: 100%;
+    background-position: center bottom;
+    background-image: url(../img/top.jpg);
+    background-repeat: no-repeat;
+  }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+  div#bottom, div#top {
+    display: block;
+  }
+
+  div#container {
+    background-image: none;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  div#bottom, div#top {
+    display: block;
+  }
+
+  div#container {
+    background-image: none;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

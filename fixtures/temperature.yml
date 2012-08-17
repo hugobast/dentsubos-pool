@@ -1,0 +1,28 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://192.168.3.11/temperature.json
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept-Encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept: 
+      - "*/*"
+      User-Agent: 
+      - Ruby
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Content-Type: 
+      - application/json; charset=utf-8
+    body: 
+      encoding: US-ASCII
+      string: "{\"temperature\": 79}"
+    http_version: 
+  recorded_at: Tue, 14 Aug 2012 19:00:10 GMT
+recorded_with: VCR 2.2.4

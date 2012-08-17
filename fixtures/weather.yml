@@ -1,0 +1,47 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://www.theweathernetwork.com/dataaccess/citypage/json/caqc0363
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept-Encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept: 
+      - "*/*"
+      User-Agent: 
+      - Ruby
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Content-Type: 
+      - text/plain
+      Last-Modified: 
+      - Fri, 10 Aug 2012 17:16:43 GMT
+      Access-Control-Allow-Origin: 
+      - "*"
+      X-Varnish: 
+      - 1508224690 1508192519
+      - 764650718 764153631
+      Cache-Control: 
+      - max-age=600
+      Content-Length: 
+      - "5154"
+      Accept-Ranges: 
+      - bytes
+      X-Iscached: 
+      - HIT
+      Date: 
+      - Fri, 10 Aug 2012 17:29:22 GMT
+      Connection: 
+      - keep-alive
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"PACKAGE\":{\"name\":\"citypage\",\"Observation\":{\"timestamp_gmt\": 1.344618e+12,\"timestampApp_local\": 1.3446036e+12,\"tzbias\":-240,\"tzid\":22,\"dst\":1,\"icon\":\"OVC\",\"temperature_c\":21,\"feelsLike_c\":\"\",\"windDirection\":\"NE\",\"windSpeed_kmh\":17,\"windGustSpeed_kmh\":\"\",\"humidity_percent\":88,\"pressure_kpa\":101.16,\"prTend\":3,\"visibility_km\":6.4,\"ceiling_f\":600,\"sunrise_time\":\"05:50\",\"sunset_time\":\"20:09\",\"name_en\":\"P.E.Trudeau Airport\",\"name_fr\":\"A\xC3\xA9roport P.-E.-Trudeau\"},\"ShortTerm\":{\"timestamp_gmt\": 1.34461896e+12,\"timestamp_local\": 1.34460456e+12,\"tzbias\":-240,\"tzid\":22,\"dst\":1,\"Period\":[{\"n\":1,\"period\":4,\"timestampApp_gmt\": 1.3446216e+12,\"timestampApp_local\": 1.3446072e+12,\"icon\":\"Q\",\"temperature_c\":24,\"feelsLike_c\":32,\"humidity_percent\":88,\"pop_percent\":90,\"windDirection\":\"NE\",\"windSpeed_kmh\":15,\"windGustSpeed_kmh\":30,\"rain\":4.1,\"snow\":0,\"rain_range\":\"~5\",\"snow_range\":0},{\"n\":2,\"period\":1,\"timestampApp_gmt\": 1.3446432e+12,\"timestampApp_local\": 1.3446288e+12,\"icon\":\"QN\",\"temperature_c\":20,\"feelsLike_c\":\"\",\"humidity_percent\":94,\"pop_percent\":90,\"windDirection\":\"E\",\"windSpeed_kmh\":15,\"windGustSpeed_kmh\":0,\"rain\":6.7,\"snow\":0,\"rain_range\":\"5-10\",\"snow_range\":0},{\"n\":3,\"period\":2,\"timestampApp_gmt\": 1.3446648e+12,\"timestampApp_local\": 1.3446504e+12,\"icon\":\"R-N\",\"temperature_c\":20,\"feelsLike_c\":\"\",\"humidity_percent\":94,\"pop_percent\":90,\"windDirection\":\"E\",\"windSpeed_kmh\":20,\"windGustSpeed_kmh\":0,\"rain\":3.7,\"snow\":0,\"rain_range\":\"2-4\",\"snow_range\":0},{\"n\":4,\"period\":3,\"timestampApp_gmt\": 1.3446864e+12,\"timestampApp_local\": 1.344672e+12,\"icon\":\"L\",\"temperature_c\":21,\"feelsLike_c\":\"\",\"humidity_percent\":88,\"pop_percent\":90,\"windDirection\":\"E\",\"windSpeed_kmh\":20,\"windGustSpeed_kmh\":30,\"rain\":4.4,\"snow\":0,\"rain_range\":\"~5\",\"snow_range\":0},{\"n\":5,\"period\":4,\"timestampApp_gmt\": 1.344708e+12,\"timestampApp_local\": 1.3446936e+12,\"icon\":\"Q+\",\"temperature_c\":27,\"feelsLike_c\":36,\"humidity_percent\":89,\"pop_percent\":70,\"windDirection\":\"SE\",\"windSpeed_kmh\":15,\"windGustSpeed_kmh\":0,\"rain\":2.2,\"snow\":0,\"rain_range\":\"1-3\",\"snow_range\":0}]},\"LongTerm\":{\"timestamp_gmt\": 1.34461458e+12,\"timestamp_local\": 1.34460018e+12,\"tzbias\":-240,\"tzid\":22,\"dst\":1,\"Period\":[{\"n\":1,\"timestampApp_gmt\": 1.3446792e+12,\"timestampApp_local\": 1.3446648e+12,\"iconDay\":\"Q+\",\"temperatureMin_c\":20,\"temperatureMax_c\":27,\"rhmin\":70,\"rhmax\":94,\"feelsLike_c\":36,\"windDirection\":\"SE\",\"windSpeed_kmh\":15,\"popDay_percent\":90,\"iconNight\":\"T+N\",\"rain\":8.4,\"snow\":0,\"popNight_percent\":60,\"rain_range\":\"5-10\",\"snow_range\":0},{\"n\":2,\"timestampApp_gmt\": 1.3447656e+12,\"timestampApp_local\": 1.3447512e+12,\"iconDay\":\"Q\",\"temperatureMin_c\":19,\"temperatureMax_c\":26,\"rhmin\":61,\"rhmax\":94,\"feelsLike_c\":32,\"windDirection\":\"SO\",\"windSpeed_kmh\":15,\"popDay_percent\":60,\"sun_hrs\":3,\"iconNight\":\"TN\",\"popNight_percent\":30,\"rain\":2,\"snow\":0,\"rain_range\":\"1-3\",\"snow_range\":0},{\"n\":3,\"timestampApp_gmt\": 1.344852e+12,\"timestampApp_local\": 1.3448376e+12,\"iconDay\":\"A-\",\"temperatureMin_c\":18,\"temperatureMax_c\":26,\"rhmin\":54,\"rhmax\":94,\"feelsLike_c\":32,\"windDirection\":\"O\",\"windSpeed_kmh\":15,\"popDay_percent\":30,\"sun_hrs\":5,\"iconNight\":\"A-N\",\"popNight_percent\":40,\"rain\":0.9,\"snow\":0,\"rain_range\":\"~1\",\"snow_range\":0},{\"n\":4,\"timestampApp_gmt\": 1.3449384e+12,\"timestampApp_local\": 1.344924e+12,\"iconDay\":\"T\",\"temperatureMin_c\":17,\"temperatureMax_c\":26,\"rhmin\":58,\"rhmax\":94,\"feelsLike_c\":32,\"windDirection\":\"S\",\"windSpeed_kmh\":5,\"popDay_percent\":40,\"sun_hrs\":7,\"iconNight\":\"QN\",\"popNight_percent\":80,\"rain\":9.300000000000001,\"snow\":0,\"rain_range\":\"~10\",\"snow_range\":0},{\"n\":5,\"timestampApp_gmt\": 1.3450248e+12,\"timestampApp_local\": 1.3450104e+12,\"iconDay\":\"T\",\"temperatureMin_c\":19,\"temperatureMax_c\":25,\"rhmin\":65,\"rhmax\":94,\"feelsLike_c\":31,\"windDirection\":\"S\",\"windSpeed_kmh\":15,\"popDay_percent\":60,\"sun_hrs\":5,\"iconNight\":\"TN\",\"popNight_percent\":30,\"rain\":1.8,\"snow\":0,\"rain_range\":\"1-3\",\"snow_range\":0},{\"n\":6,\"timestampApp_gmt\": 1.3451112e+12,\"timestampApp_local\": 1.3450968e+12,\"iconDay\":\"S+\",\"temperatureMin_c\":18,\"temperatureMax_c\":25,\"rhmin\":57,\"rhmax\":94,\"feelsLike_c\":31,\"windDirection\":\"SO\",\"windSpeed_kmh\":10,\"popDay_percent\":20,\"sun_hrs\":9,\"iconNight\":\"A-N\",\"popNight_percent\":40,\"rain\":0.3,\"snow\":0,\"rain_range\":\"<1\",\"snow_range\":0}]},\"UVObservation\":{\"last_uv\":1.1},\"PollenForecast\":{\"Source\":[{\"n\":1,\"name\":\"Acer\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":2,\"name\":\"Alnus\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":3,\"name\":\"Betula\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":4,\"name\":\"Poplus\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":5,\"name\":\"Quercus\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":6,\"name\":\"Ulmus\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4},{\"n\":7,\"name\":\"Grass\",\"concentration_perM3\":0,\"index\":0,\"level\":1},{\"n\":8,\"name\":\"Ragweed\",\"concentration_perM3\":10,\"index\":1,\"level\":1},{\"n\":9,\"name\":\"Weed\",\"concentration_perM3\":\"\",\"index\":\"\",\"level\":4}]},\"FluReport\":{\"level\":1},\"AQHIObs\":{\"timestamp_gmt\":\"\",\"timestampApp_local\":\"\",\"aq_index\":\"\",\"level_en\":\"\",\"level_fr\":\"\"},\"AirQualObs\":{\"timestamp_gmt\": 1.34461578e+12,\"timestampApp_local\": 1.34460138e+12,\"aq_index\":21,\"pollution_code\":\"FPM\",\"level_en\":\"\",\"level_fr\":\"\"}}}"
+    http_version: 
+  recorded_at: Fri, 10 Aug 2012 17:29:22 GMT
+recorded_with: VCR 2.2.4

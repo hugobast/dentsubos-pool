@@ -8,14 +8,14 @@ class TestClock < DateTime
 end
 
 describe TemperatureStore do
-  before do
+  after do
     Redis.new.del(:test)
   end
 
   it "saves temperatures and conditions" do
     clock = TestClock.new(2012, 8, 17, 11, 34)
     temperatures = {pool: 79, outside: 24, condition: :cloudy}
-    TemperatureStore.save(temperatures, :test).should be true 
+    TemperatureStore.save(temperatures, :test, clock).should be true 
   end
 
   context "reads in temperatures from the store" do
@@ -26,7 +26,7 @@ describe TemperatureStore do
         TemperatureStore.save(temperature, :test, clock)
       end
 
-      TemperatureStore.latest[:pool].should == 82 
+      TemperatureStore.latest(:test)[:pool].should == 82 
     end
   end
 end

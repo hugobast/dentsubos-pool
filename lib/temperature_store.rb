@@ -1,9 +1,10 @@
 require 'redis'
 require 'date'
+require 'pry'
 
 class TemperatureStore
   def self.save(temperatures, set = :temperature, clock = DateTime) 
-    redis.zadd @set, key(clock), temperatures.to_json
+    redis.zadd set, key(clock), temperatures.to_json
   end
 
   def self.latest(set = :temperature)

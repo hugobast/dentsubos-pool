@@ -6,24 +6,27 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 
-    <link rel='stylesheet' href='css/pool.css' />
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
+    <link rel='stylesheet' href='/css/pool.css?1234' />
 
-    <script src="js/jquery.js"></script>
-    <script src="js/pool.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/pool.js"></script>
 
-    <title>DentsuBos Pool Panel</title>
+    <title>DBPool</title>
   </head>
 
   <body>
+    <div id="rotate"></div>
+
     <div id="container">
       <div id="top">
         <div id="outside">
           <div id="condition">
-            <%= @weather.condition.to_s %>
+            <img src="img/<%= @condition %>.png">
           </div>
           <div class="temperature">
-            <%= @weather.temperature %>
+            <%= @outside %>°
+            <div class="scale">celsius</div>
           </div>
 
           <div class="scale"></div>
@@ -32,8 +35,12 @@
       <div id="bottom">
         <div id="pool">
           <div class="temperature">
-            <%= @pool_temperature %>
+            <%= @pool %>°
+            <div class="scale">fahrenheit</div>
           </div>
+        </div>
+        <div id="logo">
+          <img src="/img/logo.png">
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ and (min-width : 321px) {
     margin: 0; padding: 0;
   }
   
-  div#container {
+  div#rotate {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -26,7 +26,7 @@ and (min-width : 321px) {
     background-repeat: no-repeat;
   }
 
-  div#bottom, div#top {
+  div#container {
     display: none;
   }
 }
@@ -61,6 +61,47 @@ and (max-width : 320px) {
     background-position: center bottom;
     background-image: url(../img/top.jpg);
     background-repeat: no-repeat;
+  }
+
+  .temperature {
+    font-family: abelregular;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    
+    margin-left: 10px;
+  }
+
+  #top .temperature {
+    top: 160px;
+  }
+
+  #bottom .temperature {
+    top: 170px;
+  }
+
+  .temperature .scale {
+    text-align: left;
+    font-size: 9px;
+    text-transform: uppercase;
+    position: relative;
+    left: 195px; top: -45px;
+  }
+
+  #condition {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 110px;
+  }
+
+  #logo {
+    width: 100%;
+    position: absolute;
+    top: 270px;
+    text-align: center;
   }
 
 }

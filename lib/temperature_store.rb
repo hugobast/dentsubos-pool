@@ -3,12 +3,11 @@ require 'date'
 
 class TemperatureStore
   def self.save(temperatures, set = :temperature, clock = DateTime) 
-    @clock = clock; @set = set
-    redis.zadd @set, key, temperatures.to_json
+    redis.zadd @set, key(clock), temperatures.to_json
   end
 
-  def self.latest
-    JSON.parse(redis.zrevrange(@set, 0, 0).first, symbolize_names: true)
+  def self.latest(set = :temperature)
+    JSON.parse(redis.zrevrange(set, 0, 0).first, symbolize_names: true)
   end
 
   private
@@ -17,7 +16,7 @@ class TemperatureStore
     @redis ||= Redis.new
   end
 
-  def self.key
-    @clock.now.strftime('%y%m%d%H%M')
+  def self.key(clock)
+    clock.now.strftime('%y%m%d%H%M')
   end
 end

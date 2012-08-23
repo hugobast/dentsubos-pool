@@ -12,6 +12,18 @@
     <script src="/js/jquery.js"></script>
     <script src="/js/pool.js"></script>
 
+    <script>
+      $(function() {
+        var socket = new WebSocket("ws://192.168.3.29:8806");
+
+        socket.onmessage = function(message) {
+          console.log(message.data);
+          var data = JSON.parse(message.data);
+          $('.pool-temp').html(data.temperature);
+        }
+      })      
+    </script>
+
     <title>DBPool</title>
   </head>
 
@@ -25,7 +37,7 @@
             <img src="img/<%= @condition %>.png">
           </div>
           <div class="temperature">
-            <%= @outside %>°
+            <span class="outside-temp"><%= @outside %></span>°
             <div class="scale">celsius</div>
           </div>
 
@@ -35,7 +47,7 @@
       <div id="bottom">
         <div id="pool">
           <div class="temperature">
-            <%= @pool %>°
+            <span class="pool-temp"><%= @pool %></span>°
             <div class="scale">fahrenheit</div>
           </div>
         </div>

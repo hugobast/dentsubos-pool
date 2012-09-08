@@ -19,7 +19,7 @@ EM.run do
   EM::WebSocket.start host: '0.0.0.0', port: 8806 do |socket|
     socket.onopen do
       sid = @channel.subscribe { |data| socket.send data }
-      puts "connected!"
+      puts "client connected!"
 
       socket.onclose do
         @channel.unsubscribe sid
@@ -29,6 +29,10 @@ EM.run do
 
   module TemperatureReceiver
     attr_accessor :channel
+
+    def post_init
+      puts "arduino connected!"
+    end
 
     def receive_data data
       channel.push data
@@ -42,6 +46,3 @@ EM.run do
 
   Pool.run!
 end
-
-
-

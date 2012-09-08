@@ -4,7 +4,7 @@
     <meta charset"utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1">
 
     <link rel="stylesheet" href="/fonts/fonts.css">
     <link rel='stylesheet' href='/css/pool.css?1234' />
@@ -33,22 +33,26 @@
     <div id="container">
       <div id="top">
         <div id="outside">
-          <div id="condition">
-            <img src="img/<%= @condition %>.png">
-          </div>
           <div class="temperature">
-            <span class="outside-temp"><%= @outside %></span>°
-            <div class="scale">celsius</div>
+            <div id="condition">
+              <img src="img/<%= @condition %>.png">
+            </div>
+            <div>
+              <span class="outside-temp"><%= @outside %></span>
+              <span>°</span>
+              <span class="scale">celsius</span>
+            </div>
           </div>
-
-          <div class="scale"></div>
         </div>
       </div>
       <div id="bottom">
         <div id="pool">
           <div class="temperature">
-            <span class="pool-temp"><%= @pool %></span>°
-            <div class="scale">fahrenheit</div>
+            <div>
+              <span class="pool-temp"><%= @pool %></span>
+              <span>°</span>
+              <span class="scale">fahrenheit</span>
+            </div>
           </div>
         </div>
         <div id="logo">

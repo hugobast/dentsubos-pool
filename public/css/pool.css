@@ -1,24 +1,82 @@
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-/* Styles */
+html, body {
+  height: 100%; width: 100%;
+  margin: 0; padding: 0;
 }
 
-/* Smartphones (landscape) ----------- */
-@media only screen 
-and (min-width : 321px) {
+body {
+  min-height: 650px;
+  min-width: 480px;
+  position: relative;
+}
+
+body #container {
+  height: 100%;
+  min-height: 650px;
+  min-width: 480px;
+  background: url(../img/cover.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.temperature {
+  font-family: abelregular;
+  color: white;
+  font-size: 160px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  
+}
+
+#top .temperature {
+  bottom: 55%;
+}
+
+#bottom .temperature {
+  top: 55%;
+}
+
+.temperature .scale {
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  position: relative;
+  top: -50px;
+  left: -90px;
+}
+
+.pool-temp, .outside-temp {
+  margin-right: -40px;
+  margin-left: 80px;
+}
+
+#condition {
+  width: 100%;
+  text-align: center;
+}
+
+#logo {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+}
+
+/* Smartphones (landscape)   */
+@media (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) {
   body, html {
     widht: 100%; height: 100%;
+    min-height: 100%;
     position: relative;
-    overflow: hidden;
     margin: 0; padding: 0;
   }
   
   div#rotate {
-    position: absolute;
+    position: relative;
     top: 0; left: 0;
-    width: 100%; height: 100%;
+    width: 100%; height: 320px;
 
     background-size: 100%;
     background-position: center center;
@@ -31,10 +89,8 @@ and (min-width : 321px) {
   }
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen 
-and (max-width : 320px) {
-  
+/* Smartphones (portrait) */
+@media (max-width: 320px) {
   body, html {
     widht: 100%; height: 100%;
     min-height: 480px;
@@ -72,11 +128,10 @@ and (max-width : 320px) {
     width: 100%;
     position: absolute;
     
-    margin-left: 10px;
   }
 
   #top .temperature {
-    top: 160px;
+    top: 70px;
   }
 
   #bottom .temperature {
@@ -87,76 +142,29 @@ and (max-width : 320px) {
     text-align: left;
     font-size: 9px;
     text-transform: uppercase;
-    position: relative;
-    left: 195px; top: -45px;
+    position: relative;top: -22px;
+    left: -45px;
+  }
+
+  .pool-temp, .outside-temp {
+    margin-right: -20px;
+    margin-left: 60px;
   }
 
   #condition {
-    position: absolute;
     width: 100%;
     text-align: center;
-    top: 110px;
   }
 
   #logo {
     width: 100%;
     position: absolute;
-    top: 270px;
+    top: 290px;
     text-align: center;
   }
 
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
-/* Styles */
-}
-
-/* iPads (landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : landscape) {
-/* Styles */
-}
-
-/* iPads (portrait) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) {
-  div#bottom, div#top {
-    display: block;
+  #logo img {
+    widht: 80px;
+    height: 50px;
   }
-
-  div#container {
-    background-image: none;
-  }
-}
-
-/* Desktops and laptops ----------- */
-@media only screen 
-and (min-width : 1224px) {
-  div#bottom, div#top {
-    display: block;
-  }
-
-  div#container {
-    background-image: none;
-  }
-}
-
-/* Large screens ----------- */
-@media only screen 
-and (min-width : 1824px) {
-/* Styles */
-}
-
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
 }

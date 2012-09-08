@@ -7,7 +7,7 @@ EM.run do
   class Pool < Sinatra::Base
     get '/now' do
       temperature = TemperatureStore.latest 
-      @pool = $pool
+      @pool = $pool || 76
       @outside = temperature[:outside]
       @condition = temperature[:condition]
       erb :index

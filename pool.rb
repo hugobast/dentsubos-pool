@@ -35,8 +35,12 @@ EM.run do
     end
 
     def receive_data data
+      begin
+        $pool = JSON.parse(data)["temperature"]
+      rescue JSON::ParserError
+        puts 'error generated from JSON::ParserError'
+      end
       channel.push data
-      $pool = JSON.parse(data)["temperature"]
     end
   end
 

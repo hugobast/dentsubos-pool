@@ -15,17 +15,9 @@ void setup()
     wifly.terminal();
   }
 
-  if(!wifly.isAssociated()) {
-      wifly.join(ssid, passphrase, true);
-  }
-
   wifly.setDeviceID("poolclient");
   wifly.setIpProtocol(WIFLY_PROTOCOL_TCP);
-
-  if(wifly.isConnected()) {
-    wifly.close();
-  }
-  
+  wifly.join(ssid, passphrase, true);
   pinMode(thermometer_pin, INPUT);
 }
 

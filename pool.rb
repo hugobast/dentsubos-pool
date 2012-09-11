@@ -4,7 +4,7 @@ require 'em-websocket'
 require 'sinatra/base'
 require_relative 'lib/pool'
 
-logger = Logger.new(STDOUT)
+$logger = Logger.new(STDOUT)
 
 EM.run do
   class Pool < Sinatra::Base
@@ -22,7 +22,7 @@ EM.run do
   EM::WebSocket.start host: '0.0.0.0', port: 8806 do |socket|
     socket.onopen do
       sid = @channel.subscribe { |data| socket.send data }
-      logger.info "websocket client connected!"
+      $logger.info "websocket client connected!"
 
       socket.onclose do
         @channel.unsubscribe sid
@@ -34,20 +34,20 @@ EM.run do
     attr_accessor :channel
 
     def post_init
-      logger.info "arduino connected!"
+      $logger.info "arduino connected!"
     end
 
     def unbind
-      logger.info "arduino disconnected!"
+      $logger.info "arduino disconnected!"
     end
 
     def receive_data data
       begin
         $pool = JSON.parse(data)["temperature"]
       rescue JSON::ParserError
-        logger.error 'error generated from JSON::ParserError'
+        $logger.error 'error generated from JSON::ParserError'
       end
-      logger.info "received #{data}"
+      $logger.info "received #{data}"
       channel.push data
     end
   end

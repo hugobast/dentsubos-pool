@@ -1,4 +1,8 @@
 #include <WiFlyHQ.h>
+#include "LowPower.h"
+
+#include <SoftwareSerial.h>
+SoftwareSerial wifiSerial(0,1);
 
 const char ssid[] = "Piscine";
 const char passphrase[] = "p1scine!";
@@ -9,9 +13,9 @@ WiFly wifly;
 
 void setup()
 {
-  Serial.begin(9600);
+  wifiSerial.begin(9600);
 
-  if(!wifly.begin(&Serial, NULL)) {
+  if(!wifly.begin(&wifiSerial, NULL)) {
     wifly.terminal();
   }
 
@@ -41,6 +45,8 @@ int previousValue = 0;
 
 void loop()
 {
+  LowPower.powerSave(SLEEP_1S, ADC_OFF, BOD_OFF, TIMER2_OFF);
+  
   if(wifly.isConnected() == false) {
     wifly.open("192.168.3.4", 8805);
   } else {
@@ -53,12 +59,11 @@ void loop()
       
       if((int)fahrenheit != previousValue) {
         char responseBuffer[25];
-        String response = "{\"temperature\": " + String((int)fahrenheit) + "}";
+        String response = "{\"temperature\": " + String((int)fahrenheit) + "}\n";
         response.toCharArray(responseBuffer, 25);
         wifly.write(responseBuffer);
         previousValue = (int)fahrenheit;
       }
     }
   }
-  delay(1000);
 }

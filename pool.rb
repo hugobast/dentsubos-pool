@@ -22,7 +22,6 @@ EM.run do
   EM::WebSocket.start host: '0.0.0.0', port: 8806 do |socket|
     socket.onopen do
       sid = @channel.subscribe { |data| socket.send data }
-      $logger.info "websocket client connected!"
 
       socket.onclose do
         @channel.unsubscribe sid
@@ -33,23 +32,13 @@ EM.run do
   module TemperatureReceiver
     attr_accessor :channel
 
-    def post_init
-      $logger.info "arduino connected!"
-    end
-
-    def unbind
-      $logger.info "arduino disconnected!"
-    end
-
     def receive_data data
       data = data.force_encoding('utf-8')
-      data = data.chomp
       begin
-        $pool = JSON.parse(data)["temperature"]
+        $pool = JSON.parse(data.chomp)["temperature"]
       rescue JSON::ParserError
-        $logger.error 'error generated from JSON::ParserError'
+        # ignore it depending on the sketch it's not needed
       end
-      $logger.info "received #{data}"
       channel.push data
     end
   end

@@ -42,6 +42,8 @@ EM.run do
     end
 
     def receive_data data
+      data = data.force_encoding('utf-8')
+      data = data.chomp
       begin
         $pool = JSON.parse(data)["temperature"]
       rescue JSON::ParserError

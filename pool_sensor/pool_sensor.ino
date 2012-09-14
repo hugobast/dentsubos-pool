@@ -1,17 +1,26 @@
-#include <SPI.h>
-#include <WiFly.h>
-#include "LowPower.h"
+#include <WiShield.h>
 
-char * ssid = "Piscine";
-char * pass = "p1scine!";
-char * server = "192.168.3.4";
-int port = 8805;
+#define WIRELESS_MODE_INFRA	1
+#define WIRELESS_MODE_ADHOC	2
 
-unsigned char thermometer_pin = A0;
+// Wireless configuration parameters ----------------------------------------
+unsigned char local_ip[] = {192,168,3,11};
+unsigned char gateway_ip[] = {192,168,3,1};
+unsigned char subnet_mask[] = {255,255,255,0};
+const prog_char ssid[] PROGMEM = {"Piscine"};
+unsigned char security_type = 3;
+const prog_char security_passphrase[] PROGMEM = {"p1scine!"};
+prog_uchar wep_keys[] PROGMEM = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d};
+unsigned char wireless_mode = WIRELESS_MODE_INFRA;
 
-WiFlyClient client;
+unsigned char ssid_len;
+unsigned char security_passphrase_len;
+//---------------------------------------------------------------------------
 
-float convertToCelsius(int value) {
+unsigned char thermometer_pin = 2;
+char socket_response[25];
+
+float convert_to_celsius(int value) {
   if(value < 340) {
     return -5.0 + (value - 120.0) / (340 - 120) * (15.0 + 5.0) + 3.5;
   } else if(value < 500) {
@@ -23,32 +32,20 @@ float convertToCelsius(int value) {
   }
 }
 
-float celsiusToFahrenheit(float celsius) {
+float celsius_to_fahrenheit(float celsius) {
   return celsius * 9/5 + 32;
 }
 
-int previousValue = 0;
-
 void setup()
-{ 
-  Serial.begin(9600);
-  WiFly.setUart(&Serial);
-  WiFly.begin();
-  WiFly.join(ssid, pass, true);
+{
+  WiFi.init();
 }
 
 void loop()
 {
-  LowPower.powerSave(SLEEP_2S, ADC_OFF, BOD_OFF, TIMER2_OFF);
-
+  WiFi.run();
   int value = analogRead(thermometer_pin);
-  float fahrenheit = celsiusToFahrenheit(convertToCelsius(value));
-  
-  if((int)fahrenheit != previousValue) {
-    client.connect(server, port);
-    String response = "{\"temperature\": " + String((int)fahrenheit) + "}";
-    client.println(response);
-    previousValue = (int)fahrenheit;
-    client.stop();
-  }
+  float celsius = convert_to_celsius(value);
+  float fahrenheit = celsius_to_fahrenheit(celsius);
+  String("{\"temperature\": " + String((int)fahrenheit) + "}").toCharArray(socket_response, 25);
 }

@@ -30,9 +30,7 @@ float celsiusToFahrenheit(float celsius) {
 int previousValue = 0;
 
 void setup()
-{
-  LowPower.powerSave(SLEEP_2S, ADC_OFF, BOD_OFF, TIMER2_OFF);
-  
+{ 
   Serial.begin(9600);
   WiFly.setUart(&Serial);
   WiFly.begin();

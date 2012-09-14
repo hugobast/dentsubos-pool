@@ -40,11 +40,14 @@ EM.run do
         # ignore it depending on the sketch it's not needed
       end
       channel.push data
+      puts data
     end
   end
 
-  EM.start_server "0.0.0.0", 8805, TemperatureReceiver do |connection|
-    connection.channel = @channel
+  EM.add_periodic_timer 2 do
+    EM.connect "192.168.3.11", 8805, TemperatureReceiver do |connection|
+      connection.channel = @channel
+    end
   end
 
   Pool.run!

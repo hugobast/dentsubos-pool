@@ -45,8 +45,12 @@ EM.run do
   end
 
   EM.add_periodic_timer 2 do
-    EM.connect "192.168.3.11", 8805, TemperatureReceiver do |connection|
-      connection.channel = @channel
+    begin
+      EM.connect "192.168.3.11", 8805, TemperatureReceiver do |connection|
+        connection.channel = @channel
+      end
+    rescue EventMachine::ConnectionError
+      # ignore it, means arduino is down or lost connection
     end
   end
 
